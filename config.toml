@@ -461,6 +461,7 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 # "XF86AudioStop" = "spawn playerctl stop"
 # "Print" = "spawn grim - | wl-copy"
 # "shift+Print" = "spawn grim -g \"$(slurp -d)\" - | wl-copy"
+"mod+Print" = "spawn grim -g \"$(slurp -o)\" - | wl-copy"
 # # Example: built-in window capture (isolated window + shadow) to clipboard
 # # "ctrl+Print" = "spawn driftwm msg screenshot window -o - | wl-copy"
 # # Example: tap binding — bare modifier chord, fires on release with no key on top
@@ -475,20 +476,29 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 # # Example: keyboard resize (unbound by default) — both drive the right edge, one pushing it out and one pulling it in, by resize_step px
 # # "mod+ctrl+shift+right" = "grow-window right"
 # # "mod+ctrl+shift+left" = "shrink-window right"
+#"XF86TouchpadToggle" = "set-trackpad toggle"
+"ctrl+Print" = "spawn driftwm msg screenshot window -o - | wl-copy"
 
-# Noctalia Shell
-"mod+p" = "spawn noctalia msg settings-toggle noctalia"
-"mod+tab" = "spawn noctalia msg panel-toggle session"
-"mod+l" = "spawn noctalia msg session lock && notify-send 'Session locked'"
+# # [Noctalia Shell]
+# # mod_key = alt
+"alt+i" = "spawn noctalia msg settings-toggle noctalia"
+"alt+h" = "spawn noctalia msg panel-toggle control-center"
+"alt+m" = "spawn noctalia msg panel-toggle control-center system"
+"alt+c" = "spawn noctalia msg panel-toggle clipboard"
+"alt+ctrl+Tab" = "spawn noctalia msg panel-toggle session"
+"alt+Delete" = "spawn noctalia msg panel-toggle session"
+"alt+l" = "spawn noctalia msg session lock && notify-send 'Session locked'"
 "XF86AudioRaiseVolume" = "spawn noctalia msg volume-up"
 "XF86AudioLowerVolume" = "spawn noctalia msg volume-down"
 "XF86AudioMute" = "spawn noctalia msg volume-mute"
-"Print" = "spawn noctalia msg screenshot-region"
-"shift+Print" = "spawn noctalia msg screenshot-fullscreen pick"
-# Plugin
-"alt+Print" = "spawn noctalia msg plugin noctalia/screen_recorder:service all toggle"
+"XF86MonBrightnessUp" = "spawn noctalia msg brightness-up eDP-1"
+"XF86MonBrightnessDown" = "spawn noctalia msg brightness-down eDP-1"
+"alt+Print" = "spawn noctalia msg screenshot-region"
+"alt+shift+Print" = "spawn noctalia msg screenshot-fullscreen pick"
+# [Plugin]
+"alt+ctrl+Print" = "spawn noctalia msg plugin noctalia/screen_recorder:service all toggle"
 
-# Driftmap
+# # [Driftmap]
 "mod+u" = "spawn driftmap --show"
 "mod+i" = "spawn driftmap --toggle 2 242424cc"
 "mod+o" = "spawn driftmap --toggle-fullscreen 242424e6"
