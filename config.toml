@@ -75,12 +75,6 @@ window_placement = "auto"
 # # Commands to run at startup (after WAYLAND_DISPLAY is set).
 # # Each entry is passed to sh -c, so full shell syntax works (pipes, &&, env vars).
 autostart = [
-    # gnome-keyring is started+unlocked by PAM (pam_gnome_keyring auto_start in
-    # /etc/pam.d/gdm-password and gdm-autologin) with the secrets component only;
-    # driftwm-session imports the PAM env into systemd/D-Bus before driftwm
-    # launches. This line attaches the ssh component to the already-unlocked
-    # daemon and propagates SSH_AUTH_SOCK (PAM doesn't set it for ssh-only).
-    "eval $(gnome-keyring-daemon --start --components=ssh) && systemctl --user import-environment SSH_AUTH_SOCK && dbus-update-activation-environment SSH_AUTH_SOCK",
     "/usr/libexec/xdg-desktop-portal-gtk",
     "/usr/libexec/xfce-polkit",
     "noctalia --daemon",
