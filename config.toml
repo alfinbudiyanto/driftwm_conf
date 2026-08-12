@@ -190,7 +190,7 @@ inactive_opacity = 0.39      # cursor opacity on non-active outputs (0.0–1.0)
 # # Example: origin + 4 corners
 # # anchors = [[0, 0], [-1750, 1750], [1750, 1750], [1750, -1750], [-1750, -1750]]
 
-# [navigation.bookmarks]
+[navigation.bookmarks]
 # # Named canvas points for the go-to-bookmark / set-bookmark / move-to-bookmark
 # # actions and `driftwm msg bookmark`. Uses Y-up coordinates (same convention
 # # as window rules). This table only SEEDS the
@@ -202,6 +202,13 @@ inactive_opacity = 0.39      # cursor opacity on non-active outputs (0.0–1.0)
 # "2" = [1750, 1750]
 # "3" = [1750, -1750]
 # "4" = [-1750, -1750]
+"1" = [-5050, 1750]
+"2" = [-1750, 1750]
+"3" = [1750, 1750]
+"4" = [1750, -1750]
+"5" = [-1750, -1750]
+"6" = [-5050, -1750]
+"7" = [-3300, 0]
 
 [navigation.edge_pan]
 # zone = 100.0                # activation zone width (px from viewport edge)
@@ -439,10 +446,16 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 # "mod+2" = "go-to-bookmark 2"     # jump to bookmark 2 (top-right corner)
 # "mod+3" = "go-to-bookmark 3"     # jump to bookmark 3 (bottom-right corner)
 # "mod+4" = "go-to-bookmark 4"     # jump to bookmark 4 (bottom-left corner)
+"mod+5" = "go-to-bookmark 5"
+"mod+6" = "go-to-bookmark 6"
+"mod+7" = "go-to-bookmark 7"
 # "mod+shift+1" = "set-bookmark 1"  # overwrite bookmark 1 at the current view
 # "mod+shift+2" = "set-bookmark 2"
 # "mod+shift+3" = "set-bookmark 3"
 # "mod+shift+4" = "set-bookmark 4"
+"mod+shift+5" = "set-bookmark 5"
+"mod+shift+6" = "set-bookmark 6"
+"mod+shift+7" = "set-bookmark 7"
 # "mod+alt+up" = "send-to-output up"        # move window to output above
 # "mod+alt+down" = "send-to-output down"
 # "mod+alt+left" = "send-to-output left"
