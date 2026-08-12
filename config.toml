@@ -494,6 +494,7 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 # # [Noctalia Shell]
 # # mod_key = alt
 "alt+return" = "spawn kitty"
+"alt+r" = "exec noctalia msg config-reload"
 "alt+d" = "spawn noctalia msg panel-toggle launcher" 
 "alt+i" = "spawn noctalia msg settings-toggle noctalia"
 "alt+h" = "spawn noctalia msg panel-toggle control-center"
