@@ -517,8 +517,9 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 "XF86MonBrightnessDown" = "spawn noctalia msg brightness-down eDP-1"
 "alt+Print" = "spawn noctalia msg screenshot-region"
 "alt+shift+Print" = "spawn noctalia msg screenshot-fullscreen pick"
+"alt+ctrl+Print" = "spawn noctalia msg screenshot-fullscreen all"
 # Plugin
-"alt+ctrl+Print" = "spawn noctalia msg plugin noctalia/screen_recorder:service all toggle"
+"alt+ctrl+shift+Print" = "spawn noctalia msg plugin noctalia/screen_recorder:service all toggle"
 
 # Driftmap
 "alt+shift+u" = "spawn driftmap --show"
