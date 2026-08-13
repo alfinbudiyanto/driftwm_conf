@@ -493,17 +493,21 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 
 # # [Noctalia Shell]
 # # mod_key = alt
-"alt+return" = "spawn kitty"
 "alt+r" = "exec noctalia msg config-reload"
+"alt+i" = "spawn noctalia msg settings-toggle"
 "alt+d" = "spawn noctalia msg panel-toggle launcher" 
-"alt+i" = "spawn noctalia msg settings-toggle noctalia"
 "alt+h" = "spawn noctalia msg panel-toggle control-center"
 "alt+m" = "spawn noctalia msg panel-toggle control-center media"
+"alt+o" = "spawn noctalia msg panel-toggle control-center audio"
 "alt+s" = "spawn noctalia msg panel-toggle control-center system"
 "alt+c" = "spawn noctalia msg panel-toggle clipboard"
+"alt+n" = "spawn noctalia msg panel-toggle control-center notifications"
+"alt+a" = "spawn noctalia msg dock-toggle"
+"alt+l" = "spawn noctalia msg session lock && notify-send 'Session locked'"
+"alt+ctrl+n" = "exec noctalia msg wifi-toggle"
+"alt+ctrl+b" = "exec noctalia msg bluetooth-toggle"
 "alt+ctrl+Tab" = "spawn noctalia msg panel-toggle session"
 "alt+Delete" = "spawn noctalia msg panel-toggle session"
-"alt+l" = "spawn noctalia msg session lock && notify-send 'Session locked'"
 "XF86AudioRaiseVolume" = "spawn noctalia msg volume-up"
 "XF86AudioLowerVolume" = "spawn noctalia msg volume-down"
 "XF86AudioMute" = "spawn noctalia msg volume-mute"
@@ -511,15 +515,14 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 "XF86MonBrightnessDown" = "spawn noctalia msg brightness-down eDP-1"
 "alt+Print" = "spawn noctalia msg screenshot-region"
 "alt+shift+Print" = "spawn noctalia msg screenshot-fullscreen pick"
-# [Plugin]
+# Plugin
 "alt+ctrl+Print" = "spawn noctalia msg plugin noctalia/screen_recorder:service all toggle"
 
-# # [Driftmap]
-"mod+u" = "spawn driftmap --show"
-"mod+i" = "spawn driftmap --toggle 2 242424cc"
-"mod+o" = "spawn driftmap --toggle-fullscreen 242424e6"
+# Driftmap
+"alt+shift+u" = "spawn driftmap --show"
+"alt+shift+i" = "spawn driftmap --toggle 2 242424cc"
+"alt+shift+o" = "spawn driftmap --toggle-fullscreen 242424e6"
 
-[mouse]
 # # When true (default), dragging a window's edge or corner resizes it via the
 # # invisible resize border (SSD frame or CSD margin). Set false to make that
 # # border inert — resize only through explicit bindings (e.g. alt+right) or
