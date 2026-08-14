@@ -528,9 +528,9 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 "alt+ctrl+shift+Print" = "spawn noctalia msg plugin noctalia/screen_recorder:service all toggle"
 
 # Driftmap
-"alt+shift+u" = "spawn driftmap --show"
-"alt+shift+i" = "spawn driftmap --toggle 2 242424cc"
-"alt+shift+o" = "spawn driftmap --toggle-fullscreen 242424e6"
+"alt+shift+i" = "spawn driftmap --show"
+"alt+shift+o" = "spawn driftmap --toggle 2 242424cc"
+"alt+shift+p" = "spawn driftmap --toggle-fullscreen 242424e6"
 
 # # When true (default), dragging a window's edge or corner resizes it via the
 # # invisible resize border (SSD frame or CSD margin). Set false to make that
