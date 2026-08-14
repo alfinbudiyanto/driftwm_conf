@@ -410,8 +410,9 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 # #   none                    — unbind this key combo
 # #
 # # Directions: up, down, left, right, up-left, up-right, down-left, down-right
-"mod+return" = "spawn kitty"   # $TERMINAL, else first of: foot, alacritty, ptyxis, kitty, wezterm, gnome-terminal, konsole
+"mod+return" = "spawn kitty"    # $TERMINAL, else first of: foot, alacritty, ptyxis, kitty, wezterm, gnome-terminal, konsole
 "mod+d" = "spawn fuzzel"        # $LAUNCHER, else first of: fuzzel, wofi, rofi, bemenu-run, wmenu-run, tofi-drun, mew-run
+"alt+d" = "spawn noctalia msg panel-toggle launcher"	# use noctalia
 # "mod+q" = "close-window"
 # "mod+e" = "toggle-cursor-pan"     # toggle cursor edge-pan (see [navigation.edge_pan])
 # "mod+f" = "toggle-fullscreen"
@@ -471,6 +472,11 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 # "XF86AudioNext" = "spawn playerctl next"
 # "XF86AudioPrev" = "spawn playerctl previous"
 # "XF86AudioStop" = "spawn playerctl stop"
+"XF86AudioRaiseVolume" = "spawn noctalia msg volume-up"		# use noctalia
+"XF86AudioLowerVolume" = "spawn noctalia msg volume-down"
+"XF86AudioMute" = "spawn noctalia msg volume-mute"
+"XF86MonBrightnessUp" = "spawn noctalia msg brightness-up eDP-1"
+"XF86MonBrightnessDown" = "spawn noctalia msg brightness-down eDP-1"
 # "Print" = "spawn grim - | wl-copy"
 # "shift+Print" = "spawn grim -g \"$(slurp -d)\" - | wl-copy"
 "mod+Print" = "spawn grim -g \"$(slurp -o)\" - | wl-copy"
@@ -489,48 +495,42 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 # # "mod+ctrl+shift+right" = "grow-window right"
 # # "mod+ctrl+shift+left" = "shrink-window right"
 "ctrl+Print" = "spawn driftwm msg screenshot window -o - | wl-copy"
+"mod+u" = "spawn driftmap --show"	# driftmap
+"mod+i" = "spawn driftmap --toggle 2 242424cc"
+"mod+o" = "spawn driftmap --toggle-fullscreen 242424e6"
 
 # # [Noctalia Shell]
 # # mod_key = alt
-"alt+r" = "exec noctalia msg config-reload"
-"alt+i" = "spawn noctalia msg settings-toggle"
-"alt+d" = "spawn noctalia msg panel-toggle launcher" 
-"alt+h" = "spawn noctalia msg panel-toggle control-center"
-"alt+m" = "spawn noctalia msg panel-toggle control-center media"
-"alt+o" = "spawn noctalia msg panel-toggle control-center audio"
-"alt+s" = "spawn noctalia msg panel-toggle control-center system"
-"alt+p" = "spawn noctalia msg panel-toggle control-center power"
-"alt+c" = "spawn noctalia msg panel-toggle clipboard"
-"alt+n" = "spawn noctalia msg panel-toggle control-center notifications"
+"alt+r" = "exec noctalia msg config-reload"		# reload
+"alt+i" = "spawn noctalia msg settings-toggle"		# setting toggle
+"alt+h" = "spawn noctalia msg panel-toggle control-center"		# home bar (control-center)
+"alt+shift+h" = "spawn noctalia msg caffeine-toggle"
+"alt+m" = "spawn noctalia msg panel-toggle control-center media"	# media player
+"alt+shift+m" = "spawn noctalia msg media toggle"
+"alt+shift+greater" = "spawn noctalia msg media next"
+"alt+shift+less" = "spawn noctalia msg media previous"
+"alt+o" = "spawn noctalia msg panel-toggle control-center audio"	# input output audio
+"alt+shift+o" = "spawn noctalia msg mic-mute"
+"alt+s" = "spawn noctalia msg panel-toggle control-center system"	# monitoring
+"alt+p" = "spawn noctalia msg panel-toggle control-center power"	# power profile
+"alt+shift+p" = "spawn noctalia msg power-cycle"
+"alt+w" = "spawn noctalia msg panel-toggle control-center network"	# wireless/network
+"alt+shift+w" = "spawn noctalia msg wifi-toggle"
+"alt+b" = "spawn noctalia msg panel-toggle control-center bluetooth"	# bluetooth
+"alt+shift+b" = "spawn noctalia msg bluetooth-toggle"
+"alt+c" = "spawn noctalia msg panel-toggle clipboard"		# clipboard
+"alt+shift+c" = "spawn noctalia msg clipboard-clear"
+"alt+n" = "spawn noctalia msg panel-toggle control-center notifications"	# notification
+"alt+shift+n" = "spawn noctalia msg notification-dnd-toggle"
 "alt+a" = "spawn noctalia msg dock-toggle"
 "alt+l" = "spawn noctalia msg session lock && notify-send 'Session locked'"
-"alt+ctrl+m" = "exec noctalia msg media toggle"
-"alt+ctrl+right" = "exec noctalia msg media next"
-"alt+ctrl+left" = "exec noctalia msg media previous"
-"alt+ctrl+n" = "exec noctalia msg wifi-toggle"
-"alt+ctrl+b" = "exec noctalia msg bluetooth-toggle"
-"alt+ctrl+insert" = "exec noctalia msg caffeine-toggle"
-"alt+ctrl+backslash" = "exec noctalia msg power-set power-saver"
-"alt+ctrl+slash" = "exec noctalia msg power-cycle"
 "alt+ctrl+tab" = "spawn noctalia msg panel-toggle session"
 "alt+delete" = "spawn noctalia msg panel-toggle session"
-"XF86AudioRaiseVolume" = "spawn noctalia msg volume-up"
-"XF86AudioLowerVolume" = "spawn noctalia msg volume-down"
-"XF86AudioMute" = "spawn noctalia msg volume-mute"
-"XF86MonBrightnessUp" = "spawn noctalia msg brightness-up eDP-1"
-"XF86MonBrightnessDown" = "spawn noctalia msg brightness-down eDP-1"
 "alt+Print" = "spawn noctalia msg screenshot-region"
 "alt+shift+Print" = "spawn noctalia msg screenshot-fullscreen pick"
 "alt+ctrl+Print" = "spawn noctalia msg screenshot-fullscreen all"
-"alt+ctrl+grave" = "spawn noctalia msg mic-mute"
-"alt+shift+backspace" = "spawn noctalia msg mic-volume-osd"
 # Plugin
 "alt+ctrl+shift+Print" = "spawn noctalia msg plugin noctalia/screen_recorder:service all toggle"
-
-# Driftmap
-"alt+shift+i" = "spawn driftmap --show"
-"alt+shift+o" = "spawn driftmap --toggle 2 242424cc"
-"alt+shift+p" = "spawn driftmap --toggle-fullscreen 242424e6"
 
 # # When true (default), dragging a window's edge or corner resizes it via the
 # # invisible resize border (SSD frame or CSD margin). Set false to make that
@@ -726,7 +726,7 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 
 [touch.anywhere]
 # "3-finger-swipe" = "pan-viewport"           # continuous
-# "3-finger-pinch" = "zoom"                    # continuous
+# "3-finger-pinch" = "zoom"                   # continuous
 # "4-finger-swipe" = "center-nearest"         # threshold (direction from drag)
 # "4-finger-pinch-in" = "zoom-to-fit"         # threshold
 # "4-finger-pinch-out" = "home-toggle"        # threshold
