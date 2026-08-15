@@ -246,12 +246,12 @@ reset_on_activation = false  # animate zoom to 1.0 when an off-screen window
 
 [snap]
 # enabled = true               # magnetic edge snapping during window drag
-gap = 80.0                  # gap left between windows and around the usable
+gap = 12.0                  # gap left between windows and around the usable
                                # area, in canvas px — snapping, fill-window,
                                # fit-window, auto placement and focus_placement
                                # all measure it
 distance = 3.0              # activation threshold (screen px from edge)
-break_force = 15.0          # screen px past snap to break free
+break_force = 4.0           # screen px past snap to break free
 corners = true              # also align corners (parallel edges line up: top-to-top, left-to-left)
 centers = true              # also align centers (midpoints line up along the moved axis)
 
