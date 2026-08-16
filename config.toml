@@ -198,17 +198,15 @@ inactive_opacity = 0.39      # cursor opacity on non-active outputs (0.0–1.0)
 # # An explicitly empty table (just the header, no keys) disables the default
 # # seeds. Runtime edits persist across restarts only with the [session]
 # # restore_bookmarks flag. A bookmark stores a canvas position, not a zoom level.
-# "1" = [-1750, 1750]
-# "2" = [1750, 1750]
+"1" = [-1750, 1750]
+"2" = [1750, 1750]
 # "3" = [1750, -1750]
 # "4" = [-1750, -1750]
-"1" = [-5050, 1750]
-"2" = [-1750, 1750]
-"3" = [1750, 1750]
-"4" = [1750, -1750]
-"5" = [-1750, -1750]
-"6" = [-5050, -1750]
-"7" = [-3300, 0]
+"3" = [5050, 1750]
+"4" = [3300, 0]
+"5" = [5050, -1750]
+"6" = [1750, -1750]
+"7" = [-1750,-1750]
 
 [navigation.edge_pan]
 # zone = 100.0                # activation zone width (px from viewport edge)
