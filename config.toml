@@ -409,6 +409,7 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 # #
 # # Directions: up, down, left, right, up-left, up-right, down-left, down-right
 "mod+return" = "spawn kitty"    # $TERMINAL, else first of: foot, alacritty, ptyxis, kitty, wezterm, gnome-terminal, konsole
+"alt+return" = "spawn kitty"
 "mod+d" = "spawn fuzzel"        # $LAUNCHER, else first of: fuzzel, wofi, rofi, bemenu-run, wmenu-run, tofi-drun, mew-run
 # "mod+q" = "close-window"
 # "mod+e" = "toggle-cursor-pan"     # toggle cursor edge-pan (see [navigation.edge_pan])
