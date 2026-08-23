@@ -1028,6 +1028,7 @@ blur	= true
 opacity	= 0.76
 
 [[window_rules]]
-title            = "Picture-in-Picture"
-pinned_to_screen = true
-position         = [683, -384]
+title			= "Picture-in-Picture"
+pinned_to_screen	= true
+position		= [683, -384]
+output			= "eDP-1"
