@@ -881,7 +881,7 @@ opacity = 0.76               # 0.0–1.0
 
 [[outputs]]
 name = "DP-1"
-position = [-1366,-384]
+position = [1366,-384]
 mode = "1366x768@60"
 
 # ## Window rules
