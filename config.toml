@@ -1031,3 +1031,8 @@ title			= "Picture-in-Picture"
 pinned_to_screen	= true
 position		= [683, -384]
 output			= "eDP-1"
+
+[[window_rules]]
+app_id			= "xfce-polkit"
+pinned_to_screen	= true
+output			= "eDP-1"
