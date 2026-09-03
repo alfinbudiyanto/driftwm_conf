@@ -94,12 +94,14 @@ autostart = [
 # # Suspend instead of close when a window is closed by the client
 # # (titlebar X, in-app quit). close-window bindings, `msg close`, and
 # # taskbar closes still close for real. Per-window overridable via a
-# # `suspend_on_close` window rule. See docs/session.md.
+# # `suspend_on_close` window rule. Whether windows that were still open at a
+# # logout come back is governed by [session].restore_windows, not by this
+# # flag. See docs/session.md.
 # suspend_on_close = false
 
-# # Restore still-open windows after a restart: on quit or logout, windows
-# # that resolve to a .desktop entry are saved and come back as suspended
-# # windows on the next launch (nothing auto-launches). Per-window overridable
+# # Restore still-open windows after a restart: windows that resolve to a
+# # .desktop entry are saved as you go and come back as suspended windows on
+# # the next launch (nothing auto-launches). Per-window overridable
 # # via a `restore_windows` window rule. See docs/session.md.
 # restore_windows = false
 
@@ -164,6 +166,12 @@ repeat_delay = 300         # ms before repeat starts
                               # apart two identically-sized touchscreens.
 # # Example:
 # # map_to_output = "DP-2"
+
+[input.tablet]
+# # Output name (e.g. "eDP-1") this tablet maps to. If unset, the tablet
+# # output is auto-detected based on libinput tags, physical size matching
+# # against the output, or falling back to the internal panel.
+# map_to_output = "none"
 
 [cursor]
 # theme = "none"             # XCURSOR_THEME; "none" = inherit from environment (e.g. "Adwaita")
@@ -243,7 +251,7 @@ reset_on_activation = false  # animate zoom to 1.0 when an off-screen window
 
 [snap]
 # enabled = true               # magnetic edge snapping during window drag
-gap = 12.0                  # gap left between windows and around the usable
+# gap = 12.0                   # gap left between windows and around the usable
                                # area, in canvas px — snapping, fill-window,
                                # fit-window, auto placement and focus_placement
                                # all measure it
@@ -288,9 +296,13 @@ border_color_focused = "#D65D26"  # focused border. Same default as above —
 [effects]
 # blur_radius = 2                # number of Kawase down+up passes
 # blur_strength = 1.1            # per-pass texel spread
-# animate_blur_fps = 20          # refresh rate (0-144) of blur under an animated wallpaper; 0 = off,
-                                 # freezing the frost so it stops re-sampling the wallpaper. Camera
-                                 # moves force a refresh regardless.
+# animate_blur_fps = 20          # cap (0-144) on how often the frost re-samples a background
+                                 # that moves on its own — an animated (`u_time`) shader, or a
+                                 # wallpaper daemon's surface. 0 = never re-sample that motion,
+                                 # so the frost keeps whatever the background looked like when
+                                 # it was captured. Only that motion is capped: panning,
+                                 # zooming, and swapping the background itself (a new wallpaper,
+                                 # a restarted daemon) always refresh, 0 included.
 # animation_speed = 0.5          # window open/close/move/resize lerp factor (higher = faster; 1 = instant)
 # animation_scale = 0.95         # open/close grow/shrink amplitude (1 = fade only)
 
@@ -558,6 +570,7 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 "XF86AudioRaiseVolume" = "spawn noctalia msg volume-up"		# 3 (1 & 2 skip because for zoom web browser only)
 "XF86AudioLowerVolume" = "spawn noctalia msg volume-down"	# 4
 
+[mouse]
 # # When true (default), dragging a window's edge or corner resizes it via the
 # # invisible resize border (SSD frame or CSD margin). Set false to make that
 # # border inert — resize only through explicit bindings (e.g. alt+right) or
@@ -924,7 +937,7 @@ mode = "1366x768@60"
 # #                (true / false). Escape hatch for terminals and scratchpads that
 # #                should always really close (or always suspend). (default: inherit)
 # #   restore_windows — override [session].restore_windows for matched windows
-# #                (true / false). false keeps an app out of the shutdown save, so
+# #                (true / false). false keeps an app out of the session save, so
 # #                it doesn't come back as a suspended window on the next launch;
 # #                true restores one app while the section key stays off. Key the
 # #                rule on app_id, since a rule matching on title alone governs
@@ -947,12 +960,23 @@ mode = "1366x768@60"
 # #                            shadow rules are ignored. Use "minimal" if you
 # #                            want chrome without a titlebar.
 # #   blur       — true: blur background behind this window (default: false). Real
-# #                GPU/VRAM cost that does NOT scale down with zoom (a blurred
-# #                window is processed at full resolution however far you zoom
-# #                out), so prefer blur on a handful of windows over globally.
-# #                Results are cached and only recomputed when the content behind
-# #                the window changes.
-# #   opacity    — 0.0–1.0: window transparency (default: 1.0, fully opaque)
+# #                GPU/VRAM cost, but it tracks the window's size on screen, so
+# #                zooming out makes a blurred window cheaper, not dearer. Once
+# #                several blurred windows cover most of the viewport between
+# #                them the compositor switches to one shared full-screen blur
+# #                they all sample, so a screenful of frost doesn't multiply the
+# #                work. Results are cached, and recomputed when the view moves
+# #                or the content behind the window changes.
+# #   opacity    — 0.0–1.0: window transparency (default: 1.0, fully opaque).
+# #                Below 1.0 a fullscreen window shows the canvas behind it
+# #                instead of black: this [background] (dot grid, shader or
+# #                image) and any canvas layers keep drawing under it, while
+# #                every layer surface stays hidden along with the other
+# #                windows. A wlr-layer wallpaper daemon (swaybg, swww) is a
+# #                layer surface, so it does not show through; set the
+# #                wallpaper in [background] if you want it visible. Costs
+# #                that output its direct scan-out for as long as the window
+# #                is fullscreen, so leave games opaque.
 # #   border_width         — per-window border width override (px). Set to 0 to
 # #                          disable border on a window even when [decorations]
 # #                          border_width > 0. Ignored for decoration = "none".
