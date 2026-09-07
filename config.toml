@@ -1056,3 +1056,8 @@ output			= "eDP-1"
 app_id			= "xfce-polkit"
 pinned_to_screen	= true
 output			= "eDP-1"
+
+[[window_rules]]
+app_id			= "xdg-desktop-portal-gtk"
+pinned_to_screen	= true
+output			= "eDP-1"
