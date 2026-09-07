@@ -1061,3 +1061,8 @@ output			= "eDP-1"
 app_id			= "xdg-desktop-portal-gtk"
 pinned_to_screen	= true
 output			= "eDP-1"
+
+[[window_rules]]
+app_id			= "gcr-prompter"
+pinned_to_screen	= true
+output			= "eDP-1"
