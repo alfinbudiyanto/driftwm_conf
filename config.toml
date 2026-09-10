@@ -1041,6 +1041,7 @@ mode = "1366x768@60"
 # # app_id  = "Alacritty"
 # # opacity = 0.9
 
+# Apps
 [[window_rules]]
 app_id	= "kitty"
 blur	= true
@@ -1052,6 +1053,7 @@ pinned_to_screen	= true
 position		= [683, -384]
 output			= "eDP-1"
 
+# Verifycation
 [[window_rules]]
 app_id			= "xfce-polkit"
 pinned_to_screen	= true
@@ -1067,8 +1069,7 @@ app_id			= "gcr-prompter"
 pinned_to_screen	= true
 output			= "eDP-1"
 
+# VALVE
 [[window_rules]]
-app_id			= "com.vscodium.codium"
-title			= "VSCodium"
-pinned_to_screen	= true
-output			= "eDP-1"
+app_id		= "steam_app_*"
+pass_keys	= ["ctrl+q"]
