@@ -1073,3 +1073,8 @@ output			= "eDP-1"
 [[window_rules]]
 app_id		= "steam_app_*"
 pass_keys	= ["ctrl+q"]
+
+[[window_rules]]
+app_id			= "steam"
+title			= "/^notificationtoasts_\\d+_desktop$/"
+pinned_to_screen	= true
