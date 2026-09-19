@@ -77,7 +77,8 @@ window_placement = "auto"
 autostart = [
     "/usr/libexec/xfce-polkit",
     "noctalia",
-    "driftmap --width 256 --height 144 --canvas 24242433 --active-window b85cff67 --window 9fa8c767 --suspended	4a4a4a56"
+    "driftmap --width 256 --height 144 --canvas 24242433 --active-window b85cff67 --window 9fa8c767 --suspended	4a4a4a56",
+    "~/.config/noctalia/widgets/wallpaper",
 ]
 # #
 # # Running driftwm as a systemd session (via driftwm-session / a display manager)
@@ -1078,3 +1079,11 @@ pass_keys	= ["ctrl+q"]
 app_id			= "steam"
 title			= "/^notificationtoasts_\\d+_desktop$/"
 pinned_to_screen	= true
+
+# Widgets
+[[window_rules]]
+app_id		= "imv"
+widget		= true
+decoration	= "none"
+position	= [-43, -60]
+size		= [1366, 595]
