@@ -1085,5 +1085,5 @@ pinned_to_screen	= true
 app_id		= "imv"
 widget		= true
 decoration	= "none"
-position	= [-43, -60]
+position	= [-43, -80]
 size		= [1366, 595]
