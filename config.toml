@@ -74,12 +74,7 @@ window_placement = "auto"
 
 # # Commands to run at startup (after WAYLAND_DISPLAY is set).
 # # Each entry is passed to sh -c, so full shell syntax works (pipes, &&, env vars).
-autostart = [
-    "/usr/libexec/xfce-polkit",
-    "noctalia",
-    "driftmap --width 256 --height 144 --canvas 24242433 --active-window b85cff67 --window 9fa8c767 --suspended	4a4a4a56",
-    "~/.config/noctalia/widgets/wallpaper",
-]
+autostart = [ "noctalia" ]
 # #
 # # Running driftwm as a systemd session (via driftwm-session / a display manager)
 # # also launches XDG autostart entries (~/.config/autostart, /etc/xdg/autostart),
@@ -1086,3 +1081,4 @@ app_id		= "imv"
 widget		= true
 decoration	= "none"
 position	= [0, 0]
+pass_keys	= false
