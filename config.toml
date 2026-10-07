@@ -44,10 +44,11 @@ window_placement = "auto"
 # # "top-right", "bottom-left", "bottom-right". Handy on a widescreen, where
 # # centering wastes both flanks, or a vertical panel, where it wastes both ends.
 # #
-# # An edge or corner puts the window's visual frame a snap.gap in from the
-# # usable area — the same inset fill-window stops at, so a placed window and a
-# # filled one share an edge. That gap is canvas px, so it shrinks as you zoom
-# # out: 12.0 renders as 4.8 screen px at zoom 0.4.
+# # An edge or corner puts the window's title bar / content edge snap.outer_gap
+# # in from the usable area (border outside) — the same edge fit-window and
+# # fill-window produce, so a placed window and a filled one line up. The inset
+# # is canvas px, so it shrinks as you zoom out: 12.0 renders as 4.8 screen px
+# # at zoom 0.4.
 # #
 # # A window too big to fit on an axis with its two gutters centers on that axis
 # # rather than hanging off screen; the other axis still places, so a tall window
@@ -247,10 +248,13 @@ reset_on_activation = false  # animate zoom to 1.0 when an off-screen window
 
 [snap]
 # enabled = true               # magnetic edge snapping during window drag
-# gap = 12.0                   # gap left between windows and around the usable
-                               # area, in canvas px — snapping, fill-window,
-                               # fit-window, auto placement and focus_placement
-                               # all measure it
+# gap = 12.0                   # spacing kept between windows, in canvas px —
+                               # snapping, auto placement, clusters, and
+                               # fill-window's clearance from its neighbours
+# outer_gap = 0.0              # inset from the usable area's edge to a window's
+                               # title bar or content edge (border outside), in
+                               # canvas px — fit-window, fill-window and
+                               # focus_placement measure it; 0 is edge to edge
 distance = 3.0              # activation threshold (screen px from edge)
 break_force = 4.0           # screen px past snap to break free
 corners = true              # also align corners (parallel edges line up: top-to-top, left-to-left)
@@ -259,8 +263,10 @@ centers = true              # also align centers (midpoints line up along the mo
 [decorations]
 bg_color = "#FDF6E3"           # title bar background
 fg_color = "#5C6A72"           # title text + close button × color
-# corner_radius = 10             # clip window corners to this radius
-# shadow = true                  # drop shadow under window chrome
+# corner_radius = 10             # clip window corners to this radius; off while
+                                 # the window covers the output's usable area
+# shadow = true                  # drop shadow under window chrome; off while the
+                                 # window covers the output's usable area
 
 # # SSD title bar text. The font is resolved via fontconfig — install the
 # # `adwaita-fonts` package for the default look; otherwise a generic sans is
@@ -283,11 +289,32 @@ fg_color = "#5C6A72"           # title text + close button × color
 
 # # Borders apply to "client", "server", and "minimal" modes. "none" mode has
 # # no border unless one is set per-app in [[window_rules]].
-border_width = 3               # px; 0 disables the border
+border_width = 3               # px; 0 disables the border; not drawn while it
+                                 # hangs outside the usable area
 border_color = "#5F5F5F"       # unfocused border
 border_color_focused = "#D65D26"  # focused border. Same default as above —
                                     # set this to a different color to get a
                                     # focus indicator.
+
+# # Focus-dependent opacity for windows that carry no `opacity` of their own.
+# # A window rule `opacity` or `driftwm msg opacity` pins a window at one value
+# # in both focus states and opts it out of these defaults. Fullscreen windows
+# # and widgets stay opaque unless pinned. With an animated [background], any
+# # translucent window forces a full recomposite each frame — under a global
+# # dim, that is every unfocused window.
+# opacity = 1.0                  # unfocused windows
+# opacity_focused = 1.0          # focused windows
+
+# # Frost the backdrop of every window whose rules never set `blur` — the same
+# # per-window cost and caching as the rule, on every window. A rule
+# # `blur = true` still wins per window; fullscreen windows and layer-shell
+# # surfaces are left alone.
+# blur = false
+# # Example: dim + frost
+# # opacity = 0.85
+# # blur = true
+
+
 
 [effects]
 # blur_radius = 2                # number of Kawase down+up passes
@@ -403,7 +430,7 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 # #   toggle-fullscreen       — toggle focused window fullscreen
 # #   fit-window              — toggle maximize: centers + resets zoom + fills viewport; restore only resizes back
 # #   fit-window-snapped      — fit-window for the focused window's whole snap cluster
-# #   fill-window             — grow in place to fill free space; edges outside the usable area or overlapping another window pull back to a gap; clears maximize; press again to restore
+# #   fill-window             — grow in place to fill free space, up to snap.outer_gap from the usable area's edge and snap.gap from a neighbour; edges past those pull back; clears maximize; press again to restore
 # #   toggle-pin-to-screen    — pin/unpin the focused window to the screen (ignores pan/zoom, floats above)
 # #   reload-config           — hot-reload config file
 # #   toggle-cursor-pan       — toggle cursor edge-pan (see [navigation.edge_pan])
@@ -920,8 +947,9 @@ mode = "1366x768@60"
 # #                Pairs well with pinned_to_screen for unobtrusive overlays; the
 # #                window still takes focus later through normal interaction
 # #                (hover or click). (default: true)
-# #   widget     — true: pinned (immovable), below normal windows, excluded from
-# #                navigation and alt-tab (default: false)
+# #   widget     — true: immovable by hand (no drag, gesture or nudge) though
+# #                `driftwm msg move` still repositions it, below normal windows,
+# #                excluded from navigation and alt-tab (default: false)
 # #   pinned_to_screen — true: lock the window to the output's screen space —
 # #                ignores pan/zoom, floats above normal windows (PiP, toolbars).
 # #                `position` becomes output-relative; movable unless widget = true.
@@ -994,6 +1022,11 @@ mode = "1366x768@60"
 # #                  pass_keys = ["mod+q", "ctrl+q"] — forward ONLY these combos; all other compositor shortcuts stay active
 # #                  pass_keys = false / omit — compositor handles everything (default)
 # #                  VT switching (Ctrl+Alt+F1–F12) — always stays in the compositor
+# #   pass_mouse — controls which compositor mouse bindings ([mouse.*]) are forwarded to the app:
+# #                  pass_mouse = true — forward ALL mouse bindings over this window
+# #                  pass_mouse = ["alt+left", "alt+right"] — forward ONLY these combos; all other mouse bindings stay active
+# #                  pass_mouse = false / omit — compositor handles everything (default)
+# #                  SSD title bar, resize borders and close button — always stay with the compositor
 # #   layer_order — stacking among layer surfaces sharing the same wlr-layer
 # #                 (higher = on top; ties stack by map order, newest on top).
 # #                 The protocol has no z-index within a layer, so two overlay
@@ -1028,6 +1061,11 @@ mode = "1366x768@60"
 # # [[window_rules]]
 # # app_id    = "factorio"
 # # pass_keys = ["ctrl+q"]
+# #
+# # Example: Blender, let alt+drag reach the app (orbit / three-button emulation), keep all keys
+# # [[window_rules]]
+# # app_id     = "blender"
+# # pass_mouse = ["alt+left", "alt+middle", "alt+right"]
 # #
 # # Example: Compose rules, blur from first rule, opacity from second (both apply)
 # # [[window_rules]]
