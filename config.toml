@@ -172,8 +172,8 @@ repeat_delay = 300         # ms before repeat starts
 
 [cursor]
 # theme = "none"             # XCURSOR_THEME; "none" = inherit from environment (e.g. "Adwaita")
-size = 19                    # XCURSOR_SIZE; 0 = inherit from environment (e.g. 24)
-inactive_opacity = 0.39      # cursor opacity on non-active outputs (0.0–1.0)
+# size = 0                    # XCURSOR_SIZE; 0 = inherit from environment (e.g. 24)
+# inactive_opacity = 0.5      # cursor opacity on non-active outputs (0.0–1.0)
 
 [navigation]
 # trackpad_speed = 1.5        # trackpad (scroll/gestures) pan multiplier (1.0 = direct, 0 = off)
@@ -248,15 +248,15 @@ reset_on_activation = false  # animate zoom to 1.0 when an off-screen window
 
 [snap]
 # enabled = true               # magnetic edge snapping during window drag
-# gap = 12.0                   # spacing kept between windows, in canvas px —
+gap = 16.0                  # spacing kept between windows, in canvas px —
                                # snapping, auto placement, clusters, and
                                # fill-window's clearance from its neighbours
-# outer_gap = 0.0              # inset from the usable area's edge to a window's
+outer_gap = 12.0            # inset from the usable area's edge to a window's
                                # title bar or content edge (border outside), in
                                # canvas px — fit-window, fill-window and
                                # focus_placement measure it; 0 is edge to edge
 distance = 3.0              # activation threshold (screen px from edge)
-break_force = 4.0           # screen px past snap to break free
+break_force = 64.0          # screen px past snap to break free
 corners = true              # also align corners (parallel edges line up: top-to-top, left-to-left)
 centers = true              # also align centers (midpoints line up along the moved axis)
 
@@ -302,19 +302,17 @@ border_color_focused = "#D65D26"  # focused border. Same default as above —
 # # and widgets stay opaque unless pinned. With an animated [background], any
 # # translucent window forces a full recomposite each frame — under a global
 # # dim, that is every unfocused window.
-# opacity = 1.0                  # unfocused windows
+opacity = 0.85                  # unfocused windows
 # opacity_focused = 1.0          # focused windows
 
 # # Frost the backdrop of every window whose rules never set `blur` — the same
 # # per-window cost and caching as the rule, on every window. A rule
 # # `blur = true` still wins per window; fullscreen windows and layer-shell
 # # surfaces are left alone.
-# blur = false
+blur = true
 # # Example: dim + frost
 # # opacity = 0.85
 # # blur = true
-
-
 
 [effects]
 # blur_radius = 2                # number of Kawase down+up passes
@@ -1087,6 +1085,10 @@ title			= "Picture-in-Picture"
 pinned_to_screen	= true
 position		= [683, -384]
 output			= "eDP-1"
+
+[[window_rules]]
+app_id		= "blender"
+pass_mouse	= ["alt+left", "alt+middle", "alt+right"]
 
 # Verifycation
 [[window_rules]]
