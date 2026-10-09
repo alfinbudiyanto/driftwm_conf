@@ -1088,6 +1088,11 @@ title		= "nano*"
 pass_keys	= ["alt+e"]
 
 [[window_rules]]
+app_id          = "kitty"
+title           = "git*"
+pass_keys	= ["alt+e"]
+
+[[window_rules]]
 title			= "Picture-in-Picture"
 pinned_to_screen	= true
 position		= [683, -384]
