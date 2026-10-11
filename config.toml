@@ -569,11 +569,13 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 "alt+shift+n" = "spawn noctalia msg notification-clear-history"						## clear history notification
 "alt+t" = "spawn ~/.config/noctalia/shortcuts/shortcut 'panel-toggle control-center screen-time'"	# screen time
 "alt+a" = "spawn noctalia msg dock-toggle"		# dock
+"alt+slash" = "spawn noctalia msg annotate"		# annotate mode
 "alt+Print" = "spawn noctalia msg screenshot-region"			# screenshot region
-"alt+shift+Print" = "spawn noctalia msg screenshot-fullscreen pick"	# screenshot one screen
-"alt+ctrl+Print" = "spawn noctalia msg screenshot-fullscreen all"	# screenshot all screen
+"alt+shift+Print" = "spawn noctalia msg screenshot-fullscreen all"	# screenshot annotate
+"alt+ctrl+Print" = "spawn noctalia msg screenshot-fullscreen pick"	# screenshot one screen
+"alt+mod+Print" = "spawn noctalia msg screenshot-annotate"		# screenshot all screen
 "alt+tab" = "spawn ~/.config/noctalia/shortcuts/special 'window-switcher hold'"		# oh, i was wrong, its works properly but the visual only appears into main monitor and i really like it tbh
-"alt+shift+tab" = "spawn ~/.config/noctalia/shortcuts/special 'window-switcher hold'"		## ofc
+"alt+shift+tab" = "spawn ~/.config/noctalia/shortcuts/special 'window-switcher hold'"	## ofc
 # Plugin
 "alt+ctrl+shift+Print" = "spawn noctalia msg plugin noctalia/screen_recorder:service all toggle"
 
