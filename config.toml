@@ -236,7 +236,7 @@ reset_on_new_window = false  # animate zoom to 1.0 when a new window is mapped
 reset_on_activation = false  # animate zoom to 1.0 when an off-screen window
                               # requests focus
                               # (false = keep current zoom, pan only)
-# interact_min = 0.0          # zoom (1.0 = 100%) below which a window is too
+interact_min = 0.62          # zoom (1.0 = 100%) below which a window is too
                               # small to touch: left click navigates to it per
                               # focus_placement (a filled window returns to its
                               # fill view instead, if that view is itself above
@@ -302,8 +302,8 @@ border_color_focused = "#D65D26"  # focused border. Same default as above —
 # # and widgets stay opaque unless pinned. With an animated [background], any
 # # translucent window forces a full recomposite each frame — under a global
 # # dim, that is every unfocused window.
-opacity = 0.85                  # unfocused windows
-# opacity_focused = 1.0          # focused windows
+opacity = 0.76                  # unfocused windows
+opacity_focused = 0.97          # focused windows
 
 # # Frost the backdrop of every window whose rules never set `blur` — the same
 # # per-window cost and caching as the rule, on every window. A rule
