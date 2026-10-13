@@ -559,7 +559,7 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 "alt+s" = "spawn ~/.config/noctalia/shortcuts/shortcut 'panel-toggle control-center system'"		# system monitoring
 "alt+p" = "spawn ~/.config/noctalia/shortcuts/shortcut 'panel-toggle control-center power'"		# power profile
 "alt+w" = "spawn ~/.config/noctalia/shortcuts/shortcut 'panel-toggle control-center network'"		# wireless/network
-"alt+b" = "spawn ~/.config/noctalia/shortcuts/shortcut 'panel-toggle control-center bluetooth'"	# bluetooth
+"alt+b" = "spawn ~/.config/noctalia/shortcuts/shortcut 'panel-toggle control-center bluetooth'"		# bluetooth
 "alt+shift+b" = "spawn noctalia msg bluetooth-toggle"							## enable/disable bluetooth
 "alt+e" = "spawn ~/.config/noctalia/shortcuts/shortcut 'panel-toggle control-center weather'"		# weather
 "alt+q" = "spawn ~/.config/noctalia/shortcuts/shortcut 'panel-toggle control-center calendar'"		# calendar
@@ -571,10 +571,20 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 "alt+a" = "spawn noctalia msg dock-toggle"		# dock
 "alt+slash" = "spawn noctalia msg annotate"		# annotate mode
 "alt+Print" = "spawn noctalia msg screenshot-region"			# screenshot region
-"alt+shift+Print" = "spawn noctalia msg screenshot-fullscreen all"	# screenshot annotate
-"alt+ctrl+Print" = "spawn noctalia msg screenshot-fullscreen pick"	# screenshot one screen
-"alt+mod+Print" = "spawn noctalia msg screenshot-annotate"		# screenshot all screen
-"alt+tab" = "spawn ~/.config/noctalia/shortcuts/special 'window-switcher hold'"		# oh, i was wrong, its works properly but the visual only appears into main monitor and i really like it tbh
+"alt+shift+Print" = "spawn noctalia msg screenshot-fullscreen all"	# screenshot all screen
+"alt+ctrl+Print" = "spawn noctalia msg screenshot-fullscreen pick"	# screenshot one screen(choose)
+"alt+mod+Print" = "spawn noctalia msg screenshot-annotate"		# screenshot annotate
+									## WARNING!
+									## in this compositor ass for annotate screenshot
+									## you must hold all keys i means dont free the keys of this shortcut
+									## once you clicked the "Print" key then
+									## you have to free the "alt" key first and
+									## it will work properly becuase when you free the keys
+									## as you want it will failed to this shortcut and
+									## it is only like basic screenshot region without annotate
+"alt+tab" = "spawn ~/.config/noctalia/shortcuts/special 'window-switcher hold'"		# oh, i was wrong, its works properly but
+											## the visual only appears into main monitor and
+											## i really like it tbh
 "alt+shift+tab" = "spawn ~/.config/noctalia/shortcuts/special 'window-switcher hold'"	## ofc
 # Plugin
 "alt+ctrl+shift+Print" = "spawn noctalia msg plugin noctalia/screen_recorder:service all toggle"
