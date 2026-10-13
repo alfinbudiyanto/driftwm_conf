@@ -585,6 +585,16 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 "alt+tab" = "spawn ~/.config/noctalia/shortcuts/special 'window-switcher hold'"		# oh, i was wrong, its works properly but
 											## the visual only appears into main monitor and
 											## i really like it tbh
+											## note if the window is on a monitor
+											## it will focused into that monitor because
+											## idk what really happened but my suspect is
+											## because noctalia ain't fully support yet then
+											## noctalia does not know how is this compositor ass
+											## really works and it is just guessing
+											## noctalia guessing the compositor ass
+											## as the one big workspace
+											## and really blind with the camera
+											## as workspace every single monitor
 "alt+shift+tab" = "spawn ~/.config/noctalia/shortcuts/special 'window-switcher hold'"	## ofc
 # Plugin
 "alt+ctrl+shift+Print" = "spawn noctalia msg plugin noctalia/screen_recorder:service all toggle"
