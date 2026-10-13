@@ -507,10 +507,10 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 # "XF86AudioNext" = "spawn playerctl next"
 # "XF86AudioPrev" = "spawn playerctl previous"
 # "XF86AudioStop" = "spawn playerctl stop"
-# "Print" = "spawn grim - | wl-copy"
-# "shift+Print" = "spawn grim -g \"$(slurp -d)\" - | wl-copy"
-"mod+Print" = "spawn grim -g \"$(slurp -o)\" - | wl-copy"
-"ctrl+Print" = "spawn driftwm msg screenshot window -o - | wl-copy"
+# "Print" = "spawn grim - | wl-copy"					# screenshot all monitor
+# "shift+Print" = "spawn grim -g \"$(slurp -d)\" - | wl-copy"		# screenshot region
+"ctrl+Print" = "spawn driftwm msg screenshot window -o - | wl-copy"	# screenshot specific window(active)
+"mod+Print" = "spawn grim -g \"$(slurp -o)\" - | wl-copy"		# screenshot single monitor(chooce)
 # # Example: built-in window capture (isolated window + shadow) to clipboard
 # # "ctrl+Print" = "spawn driftwm msg screenshot window -o - | wl-copy"
 # # Example: tap binding — bare modifier chord, fires on release with no key on top
