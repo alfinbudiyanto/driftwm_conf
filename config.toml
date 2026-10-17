@@ -606,8 +606,8 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 # "XF86Sleep" = ""	# F3 (both(f3 & f4) do same things i thought, i just let is the system handle(it is work))
 # "XF86Suspend" = ""	# F4 (like F3)
 "XF86Display" = "spawn wlopm --off '*'"					# F5
-"XF86MonBrightnessUp" = "spawn noctalia msg brightness-up eDP-1"	# F6
-"XF86MonBrightnessDown" = "spawn noctalia msg brightness-down eDP-1"	# F7
+"XF86MonBrightnessUp" = "spawn noctalia msg brightness-up eDP-1 1"	# F6 (brightness up +1/step)
+"XF86MonBrightnessDown" = "spawn noctalia msg brightness-down eDP-1 1"	# F7 (brightness down -1/step)
 "XF86WLAN" = "spawn noctalia msg wifi-toggle"				# F8
 "XF86TouchpadToggle" = "spawn ~/.config/noctalia/shortcuts/trackpad-toggle"	# F9
 # # (i have no idea what F10 really for)				# F10
