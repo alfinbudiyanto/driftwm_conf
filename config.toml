@@ -1161,7 +1161,6 @@ app_id		= "imv"
 widget		= true
 decoration	= "none"
 position	= [0, 0]
-pass_keys	= false
 
 [[window_rules]]
 app_id		= "driftwm.desktop"
