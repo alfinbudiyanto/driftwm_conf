@@ -1123,6 +1123,22 @@ position		= [683, -384]
 app_id		= "blender"
 pass_mouse	= ["alt+left", "alt+middle", "alt+right"]
 
+[[window_rules]]
+app_id	= "discord"
+size	= [1300, 710]
+
+[[window_rules]]
+app_id	= "code"
+size	= [1350, 710]
+
+[[window_rules]]
+app_id	= "com.vscodium.codium"
+size	= [1250, 710]
+
+[[window_rules]]
+app_id	= "org.gnome.Papers"
+size	= [1286, 710]
+
 # Verifycation
 [[window_rules]]
 app_id			= "xfce-polkit"
