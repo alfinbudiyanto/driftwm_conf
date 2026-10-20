@@ -1103,17 +1103,7 @@ mode = "1366x768@60"
 # # app_id  = "Alacritty"
 # # opacity = 0.9
 
-# Apps
-[[window_rules]]
-app_id		= "kitty"
-title		= "nano*"
-pass_keys	= ["alt+e"]
-
-[[window_rules]]
-app_id          = "kitty"
-title           = "git*"
-pass_keys	= ["alt+e"]
-
+# APPs
 [[window_rules]]
 title			= "Picture-in-Picture"
 pinned_to_screen	= true
@@ -1138,6 +1128,21 @@ size	= [1250, 710]
 [[window_rules]]
 app_id	= "org.gnome.Papers"
 size	= [1286, 710]
+
+# kitty
+[[window_rules]]
+app_id	= "kitty"
+size	= [1090, 550]
+
+[[window_rules]]
+app_id		= "kitty"
+title		= "nano*"
+pass_keys	= ["alt+e"]
+
+[[window_rules]]
+app_id          = "kitty"
+title           = "git*"
+pass_keys	= ["alt+e"]
 
 # Verifycation
 [[window_rules]]
