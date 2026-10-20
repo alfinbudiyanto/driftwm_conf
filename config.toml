@@ -1129,6 +1129,10 @@ size	= [1250, 710]
 app_id	= "org.gnome.Papers"
 size	= [1286, 710]
 
+[[window_rules]]
+app_id	= "net.nokyan.Resources"
+size	= [1030, 710]
+
 # kitty
 [[window_rules]]
 app_id	= "kitty"
