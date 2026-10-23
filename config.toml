@@ -1170,6 +1170,13 @@ title			= "/^Confirm Deletion$/"
 pinned_to_screen	= true
 output			= "eDP-1"
 
+[[window_rules]]
+app_id			= "soffice"
+title			= "Save"
+pinned_to_screen	= true
+output			= "eDP-1"
+size			= [1220, 710]
+
 # VALVE
 [[window_rules]]
 app_id		= "steam_app_*"
