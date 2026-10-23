@@ -1133,6 +1133,10 @@ size	= [1286, 710]
 app_id	= "net.nokyan.Resources"
 size	= [1030, 710]
 
+[[window_rules]]
+app_id		= "org.gnome.Boxes"
+pass_keys	= [ "mod+d", "mod+return" ]
+
 # kitty
 [[window_rules]]
 app_id	= "kitty"
