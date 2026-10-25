@@ -559,6 +559,7 @@ path = "/usr/local/share/driftwm/wallpapers/static/pink_cloud.glsl"
 "alt+s" = "spawn ~/.config/noctalia/shortcuts/shortcut 'panel-toggle control-center system'"		# system monitoring
 "alt+p" = "spawn ~/.config/noctalia/shortcuts/shortcut 'panel-toggle control-center power'"		# power profile
 "alt+w" = "spawn ~/.config/noctalia/shortcuts/shortcut 'panel-toggle control-center network'"		# wireless/network
+"alt+shift+w" = "spawn nm-connection-editor"
 "alt+b" = "spawn ~/.config/noctalia/shortcuts/shortcut 'panel-toggle control-center bluetooth'"		# bluetooth
 "alt+shift+b" = "spawn noctalia msg bluetooth-toggle"							## enable/disable bluetooth
 "alt+e" = "spawn ~/.config/noctalia/shortcuts/shortcut 'panel-toggle control-center weather'"		# weather
